@@ -1,0 +1,307 @@
+.section {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+}
+
+.title {
+  text-align: center;
+}
+
+.text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  text-indent: 30px;
+}
+
+.href {
+  color: limegreen;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.active {
+  color: green;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 18px;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  width: fit-content;
+  box-shadow: 5px 5px 5px darkgrey;
+}
+
+.card__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.card__title {
+  font-size: 18px;
+}
+
+.card__button {
+  font-family: 'Gochi Hand', cursive;
+  cursor: pointer;
+  background-color: limegreen;
+  border-radius: 5px;
+  border: 1px solid green;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.page404__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page404__title {
+  font-size: 30px;
+  animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
+
+.image {
+  border-radius: 20px;
+}
+
+.card__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__current {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-size: 20px;
+  line-height: 1.5;
+  width: 700px;
+}
+
+.name {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.info {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.status {
+  border: 1px solid black;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+.button__row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+.characters__button {
+  width: 120px;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 22px;
+  padding: 5px 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.characters__button--all {
+  background-color: lightgrey;
+  border: 1px solid grey;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.characters__button--alive {
+  background-color: limegreen;
+  border: 1px solid green;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.characters__button--dead {
+  background-color: orangered;
+  border: 1px solid red;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.characters__button--unknown {
+  background-color: yellow;
+  border: 1px solid orange;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.charactersPage__container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  padding: 20px 0 20px 20px;
+}
+
+.next__button {
+  background-color: limegreen;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid darkgreen;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    background-color: limegreen;
+    opacity: 1;
+  }
+
+  &:disabled {
+    background-color: lightgrey;
+    border-color: grey;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.search__input {
+  width: 250px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.search__button {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 20px;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: limegreen;
+  border-radius: 5px;
+  border: 1px solid green;
+
+  &:hover {
+    opacity: 0.7;
+    box-shadow: 3px 3px 3px darkgrey;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: none;
+  }
+}

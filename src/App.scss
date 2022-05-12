@@ -1,38 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gochi Hand', cursive;
+  background-color: darkgrey;
+}
+
+a {
+  text-decoration: none;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: darkgrey;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
+.logo {
+  padding: 5px 10px;
+}
+
+.rotate {
+  animation: rotation 60s infinite linear;
+}
+
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(359deg);
   }
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.link {
+  color: limegreen;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.link--active {
+  color: green;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-top: 1px solid black;
+}
+
+.navigation__footer {
+  font-size: 14px;
+  gap: 20px;
+}
+
+.made {
+  font-size: 12px;
+}
+
+.up__button {
+  background-color: limegreen;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid darkgreen;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: green;
+  }
+}
+
+.up__image {
+  padding: 0 0 2px 1px;
 }
