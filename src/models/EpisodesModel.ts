@@ -13,7 +13,8 @@ export type EpisodesInfo = {
 export type Episode = {
     id: number;
     name: string;
-    'air_date': string;
+    // eslint-disable-next-line camelcase
+    air_date: string;
     episode: string;
     characters: string[];
     url: string;

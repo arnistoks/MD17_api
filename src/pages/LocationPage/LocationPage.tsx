@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../data/styles.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Location } from '../models/LocationModel';
-import Loader from '../components/Loader';
-import Prev from '../data/prev.png';
-import Next from '../data/next.png';
+import styles from './locationPage.module.scss';
+import { Location } from '../../models/LocationModel';
+import Loader from '../../components/Loader/Loader';
+import Prev from '../../data/prev.png';
+import Next from '../../data/next.png';
 
 const LocationPage = () => {
   const [currentLocation, setCurrentLocation] = useState<Location>();
@@ -31,11 +31,11 @@ const LocationPage = () => {
   }, [index]);
 
   return (
-    <section className="section">
+    <section className={styles.section}>
       {loading && <Loader />}
-      <div className="container charactersPage__container">
+      <div className={styles.container}>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '1'}
           onClick={() => {
             navigate(`/locations/${Number(index) - 1}`);
@@ -44,36 +44,36 @@ const LocationPage = () => {
         >
           <img className="up__image" src={Prev} alt="Up" />
         </button>
-        <div className="card card__current">
-          <div className="card__column">
+        <div className={styles.card}>
+          <div className={styles.card__column}>
             <div>
               <span>Name: </span>
-              <span className="name">
+              <span className={styles.name}>
                 {currentLocation?.name}
               </span>
             </div>
             <div>
               <span>Type: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentLocation?.type}
               </span>
             </div>
             <div>
               <span>Dimension: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentLocation?.dimension}
               </span>
             </div>
             <div>
               <span>Created: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentLocation?.created}
               </span>
             </div>
           </div>
         </div>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '126'}
           onClick={() => {
             navigate(`/locations/${Number(index) + 1}`);

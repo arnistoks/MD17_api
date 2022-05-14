@@ -1,11 +1,11 @@
-import '../data/styles.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Character } from '../models/CharacterModel';
-import Loader from '../components/Loader';
-import Prev from '../data/prev.png';
-import Next from '../data/next.png';
+import styles from './characterPage.module.scss';
+import { Character } from '../../models/CharacterModel';
+import Loader from '../../components/Loader/Loader';
+import Prev from '../../data/prev.png';
+import Next from '../../data/next.png';
 
 const CharacterPage = () => {
   const [currentCharacter, setCurrentCharacter] = useState<Character>();
@@ -31,11 +31,11 @@ const CharacterPage = () => {
   }, [index]);
 
   return (
-    <section className="section">
+    <section className={styles.section}>
       {loading && <Loader />}
-      <div className="container charactersPage__container">
+      <div className={styles.container}>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '1'}
           onClick={() => {
             navigate(`/characters/${Number(index) - 1}`);
@@ -44,63 +44,63 @@ const CharacterPage = () => {
         >
           <img className="up__image" src={Prev} alt="Up" />
         </button>
-        <div className="card card__current">
+        <div className={styles.card}>
           <div>
-            <img className="image" src={currentCharacter?.image} alt="Charachter" width="300" />
+            <img className={styles.image} src={currentCharacter?.image} alt="Character" width="300" />
           </div>
-          <div className="card__column">
+          <div className={styles.card__column}>
             <div>
               <span>Name: </span>
-              <span className="name">
+              <span className={styles.name}>
                 {currentCharacter?.name}
               </span>
             </div>
             <div>
               <span>Status: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.status}
               </span>
             </div>
             <div>
               <span>Species: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.species}
               </span>
             </div>
             <div>
               <span>Type: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.type === '' ? '-' : currentCharacter?.type}
               </span>
             </div>
             <div>
               <span>Gender: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.gender}
               </span>
             </div>
             <div>
               <span>Origin: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.origin.name}
               </span>
             </div>
             <div>
               <span>Location: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.location.name}
               </span>
             </div>
             <div>
               <span>Created: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentCharacter?.created}
               </span>
             </div>
           </div>
         </div>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '826'}
           onClick={() => {
             navigate(`/characters/${Number(index) + 1}`);

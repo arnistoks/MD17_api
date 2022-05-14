@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Episode } from '../models/EpisodesModel';
-import Loader from '../components/Loader';
+import styles from './episodesPage.module.scss';
+import { Episode } from '../../models/EpisodesModel';
+import Loader from '../../components/Loader/Loader';
 
 const EpisodesPage = () => {
   const [episodes, setEpisodes] = useState<Episode[]>();
@@ -32,53 +33,66 @@ const EpisodesPage = () => {
 
   useEffect(() => {
     getEpisodes().then();
-  }, [findEpisode]);
-
-  useEffect(() => {
     setInputValue('');
   }, [findEpisode]);
 
   return (
-    <section className="section">
+    <section className={styles.section}>
       {loading && <Loader />}
-      <div className="container">
-        <h1 className="title">Episodes</h1>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Episodes</h1>
         <form
-          className="form"
+          className={styles.form}
           onSubmit={(event) => {
             event.preventDefault();
             setInputValue('');
           }}
         >
           <input
-            className="search__input"
+            className={styles.search__input}
             type="text"
             placeholder="Search by episode name"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             required
           />
-          <button type="submit" className="search__button" onClick={() => setFindEpisode(inputValue)}>Search</button>
+          <button
+            type="submit"
+            className={styles.search__button}
+            onClick={() => setFindEpisode(inputValue)}
+          >
+            Search
+          </button>
         </form>
-        <div className="box">
-          {episodes && episodes.map(({ id, name, episode }) => (
+        <div className={styles.box}>
+          {episodes && episodes.map((episode) => (
             <div
-              className="card"
+              className={styles.card}
               key={Math.random()}
             >
               <div>
-                <span>Name: </span>
-                <span className="name">{name}</span>
+                <div>
+                  <span>Name: </span>
+                  <span className={styles.name}>{episode.name}</span>
+                </div>
+                <div>
+                  <span>Air Date: </span>
+                  <span className={styles.info}>{episode.air_date}</span>
+                </div>
+                <div>
+                  <span>Episode: </span>
+                  <span className={styles.info}>{episode.episode}</span>
+                </div>
               </div>
-              <div>
-                <span>Air Date: </span>
-                <span className="info">air_date</span>
+
+              <div className={styles.card__row}>
+                <button
+                  className={styles.card__button}
+                  onClick={() => navigate(`/episodes/${episode.id}`)}
+                >
+                  Read more
+                </button>
               </div>
-              <div>
-                <span>Episode: </span>
-                <span className="info">{episode}</span>
-              </div>
-              <button className="card__button" onClick={() => navigate(`/episodes/${id}`)}>Read more</button>
             </div>
           ))}
         </div>

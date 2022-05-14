@@ -4,16 +4,16 @@ import {
   BrowserRouter as
   Router, NavLink, Route, Routes,
 } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import CharactersPage from './pages/CharactersPage';
-import EpisodesPage from './pages/EpisodesPage';
-import LocationsPage from './pages/LocationsPage';
-import CharacterPage from './pages/CharacterPage';
-import Page404 from './pages/Page404';
+import HomePage from './pages/HomePage/HomePage';
+import CharactersPage from './pages/CharactersPage/CharactersPage';
+import EpisodesPage from './pages/EpisodesPage/EpisodesPage';
+import LocationsPage from './pages/LocationsPage/LocationsPage';
+import CharacterPage from './pages/CharacterPage/CharacterPage';
+import Page404 from './pages/Page404/Page404';
 import Logo from './data/logo.png';
 import Up from './data/up.png';
-import EpisodePage from './pages/EpisodePage';
-import LocationPage from './pages/LocationPage';
+import EpisodePage from './pages/EpisodePage/EpisodePage';
+import LocationPage from './pages/LocationPage/LocationPage';
 
 const App = () => (
   <div className="App">
@@ -23,11 +23,36 @@ const App = () => (
           <img src={Logo} alt="Logo" width="100" />
         </div>
         <nav className="navigation">
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'link link--active' : 'link')}>Home</NavLink>
-          <NavLink to="/characters" className={({ isActive }) => (isActive ? 'link link--active' : 'link')}>Characters</NavLink>
-          <NavLink to="/episodes" className={({ isActive }) => (isActive ? 'link link--active' : 'link')}>Episodes</NavLink>
-          <NavLink to="/locations" className={({ isActive }) => (isActive ? 'link link--active' : 'link')}>Locations</NavLink>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? 'link link--active' : 'link')}>About</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'link link--active' : 'link')}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/characters"
+            className={({ isActive }) => (isActive ? 'link link--active' : 'link')}
+          >
+            Characters
+          </NavLink>
+          <NavLink
+            to="/episodes"
+            className={({ isActive }) => (isActive ? 'link link--active' : 'link')}
+          >
+            Episodes
+          </NavLink>
+          <NavLink
+            to="/locations"
+            className={({ isActive }) => (isActive ? 'link link--active' : 'link')}
+          >
+            Locations
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? 'link link--active' : 'link')}
+          >
+            About
+          </NavLink>
         </nav>
       </header>
       <Routes>

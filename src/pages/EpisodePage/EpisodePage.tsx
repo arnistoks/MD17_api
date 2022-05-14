@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../data/styles.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Episode } from '../models/EpisodesModel';
-import Loader from '../components/Loader';
-import Prev from '../data/prev.png';
-import Next from '../data/next.png';
+import styles from './episodePage.module.scss';
+import { Episode } from '../../models/EpisodesModel';
+import Loader from '../../components/Loader/Loader';
+import Prev from '../../data/prev.png';
+import Next from '../../data/next.png';
 
 const EpisodePage = () => {
   const [currentEpisode, setCurrentEpisode] = useState<Episode>();
@@ -31,11 +31,11 @@ const EpisodePage = () => {
   }, [index]);
 
   return (
-    <section className="section">
+    <section className={styles.section}>
       {loading && <Loader />}
-      <div className="container charactersPage__container">
+      <div className={styles.container}>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '1'}
           onClick={() => {
             navigate(`/episodes/${Number(index) - 1}`);
@@ -44,36 +44,36 @@ const EpisodePage = () => {
         >
           <img className="up__image" src={Prev} alt="Up" />
         </button>
-        <div className="card card__current">
-          <div className="card__column">
+        <div className={styles.card}>
+          <div className={styles.card__column}>
             <div>
               <span>Name: </span>
-              <span className="name">
+              <span className={styles.name}>
                 {currentEpisode?.name}
               </span>
             </div>
             <div>
               <span>Air Date: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentEpisode?.air_date}
               </span>
             </div>
             <div>
               <span>Episode: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentEpisode?.episode}
               </span>
             </div>
             <div>
               <span>Created: </span>
-              <span className="info">
+              <span className={styles.info}>
                 {currentEpisode?.created}
               </span>
             </div>
           </div>
         </div>
         <button
-          className="next__button"
+          className={styles.next__button}
           disabled={index === '51'}
           onClick={() => {
             navigate(`/episodes/${Number(index) + 1}`);

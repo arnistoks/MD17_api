@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Location } from '../models/LocationModel';
-import Loader from '../components/Loader';
+import styles from './locationsPage.module.scss';
+import { Location } from '../../models/LocationModel';
+import Loader from '../../components/Loader/Loader';
 
 const LocationsPage = () => {
   const [locations, setLocations] = useState<Location[]>();
@@ -32,55 +33,62 @@ const LocationsPage = () => {
 
   useEffect(() => {
     getLocations().then();
-  }, [findLocation]);
-
-  useEffect(() => {
     setInputValue('');
   }, [findLocation]);
 
   return (
-    <section className="section">
+    <section className={styles.section}>
       {loading && <Loader />}
-      <div className="container">
-        <h1 className="title">Locations</h1>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Locations</h1>
         <form
-          className="form"
+          className={styles.form}
           onSubmit={(event) => {
             event.preventDefault();
             setInputValue('');
           }}
         >
           <input
-            className="search__input"
+            className={styles.search__input}
             type="text"
             placeholder="Search by location name"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             required
           />
-          <button type="submit" className="search__button" onClick={() => setFindLocation(inputValue)}>Search</button>
+          <button
+            type="submit"
+            className={styles.search__button}
+            onClick={() => setFindLocation(inputValue)}
+          >
+            Search
+          </button>
         </form>
-        <div className="box">
+        <div className={styles.box}>
           {locations && locations.map(({
             id, name, type, dimension,
           }) => (
             <div
-              className="card"
+              className={styles.card}
               key={Math.random()}
             >
               <div>
-                <span>Name: </span>
-                <span className="name">{name}</span>
+                <div>
+                  <span>Name: </span>
+                  <span className={styles.name}>{name}</span>
+                </div>
+                <div>
+                  <span>Type: </span>
+                  <span className={styles.info}>{type}</span>
+                </div>
+                <div>
+                  <span>Dimension: </span>
+                  <span className={styles.info}>{dimension}</span>
+                </div>
               </div>
-              <div>
-                <span>Type: </span>
-                <span className="info">{type}</span>
+              <div className={styles.card__row}>
+                <button className={styles.card__button} onClick={() => navigate(`/locations/${id}`)}>Read more</button>
               </div>
-              <div>
-                <span>Dimension: </span>
-                <span className="info">{dimension}</span>
-              </div>
-              <button className="card__button" onClick={() => navigate(`/locations/${id}`)}>Read more</button>
             </div>
           ))}
         </div>
